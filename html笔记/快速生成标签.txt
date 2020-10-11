@@ -1,0 +1,3 @@
+div>ul>li*3
+div+p+ul
+div>(header>ul>li*4)+footer>p

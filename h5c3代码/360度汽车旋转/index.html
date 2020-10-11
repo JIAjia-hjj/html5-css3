@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>360度汽车旋转</title>
+  <style>
+    #circlr {
+      cursor: move;
+      margin: 0 auto;
+      min-height: 100px;
+      position: relative;
+    }
+    #circlr #loader {
+      background: url(images/loader.gif) center center no-repeat;
+      bottom: 0;
+      display: none;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  </style>
+	 <!-- y这是一个jquery插件，所以先引入jquery -->
+	 <script src="js/jquery.min.js"></script>
+    <!-- 360度汽车旋转 -->
+    <script src="js/circlr.min.js"></script>
+    
+</head>
+<body>
+<div id="circlr">
+  
+  <div id="loader"></div>
+</div>
+<script>
+  // 需要准备 74个图片
+  for(var i = 1; i<=74; i++) {
+    // 创建图片   别忘更换属性
+    var img = $("<img  data-src='picture/"+i+".png'/>");
+    // 追加到 circlr里面
+    $("#circlr").append(img);// prepend 内部的前面添加  append 内部的后面添加
+
+  }
+  $(function() {  // 加一个入口函数 ，意思是等上面的 74张图片加载完毕之后，才执行
+    var crl = circlr('circlr', {
+      scroll : true,  // 滚动滚轮也能旋转
+      loader : 'loader'
+    })
+  })
+</script>
+
+</body>
+</html>
